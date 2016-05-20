@@ -27,6 +27,7 @@
     "app/services/user.ts",
     "typings/browser.d.ts",
     "typings/browser/ambient/es6-shim/index.d.ts",
+    "typings/browser/ambient/firebase/index.d.ts",
     "typings/main.d.ts"
   ]
 }
