@@ -1,0 +1,17 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Shared Imports
+// --------------------------------------------------
+// These are the imports which make up the design of this app.
+// By default each design mode includes these shared imports.
+// App Shared Sass variables belong in app.variables.scss.
+
+@import '../components/header/header';
+@import '../pages/home/home';
+
+ion-buttons[start]{
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+}

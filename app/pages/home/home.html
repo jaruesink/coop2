@@ -1,0 +1,17 @@
+<app-header></app-header>
+
+<ion-content class="home" *ngIf="user.isLoggedIn">
+  <ion-card>
+    <ion-card-header>
+      Card Header
+    </ion-card-header>
+    <ion-card-content>
+      <button (click)="notify.sendExampleNotification()">Send Myself a Notification</button>
+    </ion-card-content>
+    <ul id="messages">
+      <li *ngFor="let message of messages | async">
+        {{message.content}} - {{message.author}}
+      </li>
+    </ul>
+  </ion-card>
+</ion-content>
