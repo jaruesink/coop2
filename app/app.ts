@@ -1,11 +1,11 @@
-import {App, Platform, Nav} from 'ionic-angular';
+import {App, Platform, NavController} from 'ionic-angular';
 import {StatusBar, Push} from 'ionic-native';
-import {ViewChild} from '@angular/core';
 import {HomePage} from './pages/home/home';
 import {LoginPage} from './pages/login/login';
 import {Notifications} from './services/notifications';
 import {User} from './services/user';
 import {HeaderServices} from './services/header';
+import {Inject} from '@angular/core';
 import {FORM_PROVIDERS} from '@angular/common';
 import {FIREBASE_PROVIDERS, defaultFirebase, AngularFire} from 'angularfire2';
 import 'rxjs/Rx';
@@ -25,8 +25,8 @@ import 'rxjs/Rx';
 })
 export class MyApp {
   rootPage:any = HomePage;
-  @ViewChild(Nav) nav: Nav;
-  constructor(private platform: Platform, public user: User) {
+  constructor(private platform: Platform, public user: User, @Inject(NavController) public nav: NavController) {
+    this.nav.setRoot(HomePage);
     if (window.onDeviceReady) {
       this.initializeApp();
     }

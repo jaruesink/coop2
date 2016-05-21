@@ -1,11 +1,11 @@
-import {IonicApp} from 'ionic-angular';
-import {Injectable} from '@angular/core';
+import {IonicApp, NavController, Nav} from 'ionic-angular';
+import {Injectable, ViewChild} from '@angular/core';
 import {Http, HTTP_PROVIDERS, Headers} from '@angular/http';
 import {HomePage} from '../pages/home/home';
 
 @Injectable()
 export class User {
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
   name: string = 'Jake Ruesink';
   username: string = 'jaruesink';
   email: string = 'jaruesink@gmail.com';
@@ -17,6 +17,7 @@ export class User {
   login(username) {
     this.isLoggedIn = true;
     this.username = username;
+    // this.nav.push(HomePage);
   }
   logout() {
     this.isLoggedIn = false;

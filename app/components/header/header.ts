@@ -1,4 +1,4 @@
-import {Nav} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {Component, ViewChild} from '@angular/core';
 import {User} from '../../services/user';
 import {HeaderServices} from '../../services/header';
@@ -9,9 +9,7 @@ import {LoginPage} from '../../pages/login/login';
   selector: 'app-header'
 })
 export class AppHeader {
-  @ViewChild(Nav) nav: Nav;
-  constructor(public user: User, private header: HeaderServices) {
-  }
+  constructor(public user: User, private header: HeaderServices, public nav: NavController) {}
   showLogin() {
     this.nav.push(LoginPage);
   }
