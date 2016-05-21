@@ -1,4 +1,4 @@
-import {App, Platform, NavController} from 'ionic-angular';
+import {App, Platform} from 'ionic-angular';
 import {StatusBar, Push} from 'ionic-native';
 import {HomePage} from './pages/home/home';
 import {LoginPage} from './pages/login/login';
@@ -7,7 +7,7 @@ import {User} from './services/user';
 import {HeaderServices} from './services/header';
 import {Inject} from '@angular/core';
 import {FORM_PROVIDERS} from '@angular/common';
-import {FIREBASE_PROVIDERS, defaultFirebase, AngularFire} from 'angularfire2';
+import * as AF2 from 'angularfire2';
 import 'rxjs/Rx';
 
 @App({
@@ -20,13 +20,18 @@ import 'rxjs/Rx';
     User,
     FORM_PROVIDERS,
     HeaderServices,
-    FIREBASE_PROVIDERS,
-    defaultFirebase('https://fir-app-8f3ba.firebaseio.com/')]
+    AF2.FIREBASE_PROVIDERS,
+    AF2.defaultFirebase('https://fir-app-8f3ba.firebaseio.com/'),
+    AF2.firebaseAuthConfig({
+      provider: AF2.AuthProviders.Password,
+      method: AF2.AuthMethods.Password,
+      remember: 'default'
+    })
+  ]
 })
 export class MyApp {
   rootPage:any = HomePage;
-  constructor(private platform: Platform, public user: User, @Inject(NavController) public nav: NavController) {
-    this.nav.setRoot(HomePage);
+  constructor(private platform: Platform, public user: User) {
     if (window.onDeviceReady) {
       this.initializeApp();
     }

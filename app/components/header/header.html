@@ -1,6 +1,6 @@
 <ion-navbar primary *navbar id="app-header" [hideBackButton]="header.hide_back_button">
   <ion-buttons start>
-    <button *ngIf="user.isLoggedIn" outline primary>{{user.username}}</button>
+    <button *ngIf="user.isLoggedIn" outline primary>{{user.email}}</button>
     <button *ngIf="!user.isLoggedIn" outline primary (click)="showLogin()">Login</button>
   </ion-buttons>
   <ion-title *ngIf="!user.isLoggedIn">
@@ -10,6 +10,6 @@
     App Home
   </ion-title>
   <ion-buttons end>
-    <button *ngIf="user.isLoggedIn" outline warning (click)="user.logout()">Logout</button>
+    <button *ngIf="user.isLoggedIn" outline warning (click)="logout()">Logout</button>
   </ion-buttons>
 </ion-navbar>

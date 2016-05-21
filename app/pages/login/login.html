@@ -5,11 +5,11 @@
 <ion-content class="login">
   <ion-card>
     <ion-card-content>
-      <form (ngSubmit)="user.login(username.value)">
+      <form (ngSubmit)="login(email.value, password.value)">
       <ion-list>
         <ion-item>
-            <ion-label floating>Username</ion-label>
-            <ion-input type="text" #username></ion-input>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" #email></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating>Password</ion-label>
@@ -17,7 +17,7 @@
         </ion-item>
       </ion-list>
       <div padding-top text-right>
-      <button [disabled]="!username.value || !password.value" type="submit">Enter</button>
+        <button [disabled]="!email.value || !password.value" type="submit">Enter</button>
       </div>
       </form>
     </ion-card-content>
